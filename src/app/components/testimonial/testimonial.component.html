@@ -1,0 +1,10 @@
+<div class="testimonial-container">
+    <div class="testimonial-slider" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+        <div class="testimonial" *ngFor="let t of testimonials">
+            <img [src]="t.image" alt="User image" class="profile" />
+            <p class="quote">“{{ t.text }}”</p>
+            <h4 class="name">{{ t.name }}</h4>
+            <span class="position">{{ t.position }}</span>
+        </div>
+    </div>
+</div>

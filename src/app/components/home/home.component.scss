@@ -1,0 +1,37 @@
+@import '../../../assets/colors';
+
+.wrapper {
+    //     background-color: grey;
+    //   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    //   url("../../../assets/images/bawankar.JPG");
+    //   background-repeat: no-repeat;
+    //   background-size: cover;
+    //   padding: 50px 0;
+    //   height: 700px;
+    //   background-position: bottom;
+
+    h1 {
+        font-size: 65px;
+        color: $primary;
+        font-weight: 700;
+        margin-top: 100px;
+        margin-bottom: 20px;
+
+        // text-shadow:
+        //     -1px -1px 0 yellow,
+        //     1px -1px 0 yellow,
+        //     -1px 1px 0 yellow,
+        //     1px 1px 0 yellow;
+    }
+
+    h5 {
+        margin-bottom: 20px;
+    }
+
+    h6 {
+        font-style: italic;
+        margin-bottom: 30px;
+    }
+
+
+}

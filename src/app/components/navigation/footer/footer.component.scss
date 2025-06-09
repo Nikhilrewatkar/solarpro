@@ -1,0 +1,95 @@
+@import '../../../../assets/colors';
+
+.footer {
+    background: $primary;
+    color: #ffffff;
+    padding: 40px 20px;
+    font-family: 'Arial', sans-serif;
+
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-branding {
+        flex: 1 1 300px;
+        margin-bottom: 20px;
+
+        .logo {
+            max-width: 180px;
+        }
+
+        .tagline {
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            i {
+                margin-right: 8px;
+            }
+        }
+
+        .social-icons {
+            margin-top: 20px;
+            display: flex;
+            gap: 16px;
+
+            i {
+                font-size: 20px;
+                cursor: pointer;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: #ffcc00;
+                }
+            }
+        }
+    }
+
+    .footer-links {
+        display: flex;
+        flex: 2 1 600px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .link-section {
+            flex: 1 1 200px;
+            margin-bottom: 20px;
+
+            h4 {
+                margin-bottom: 12px;
+                font-size: 18px;
+                color: #ffffff;
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+
+                li {
+                    margin-bottom: 8px;
+                    cursor: pointer;
+                    transition: color 0.3s;
+
+                    &:hover {
+                        color: #ffcc00;
+                    }
+                }
+            }
+
+            &.address {
+                p {
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
+}

@@ -7,6 +7,9 @@ import { TopnavComponent } from './components/navigation/topnav/topnav.component
 import { FooterComponent } from './components/navigation/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { FaqComponent } from './components/faq/faq.component';
+import { TestimonialComponent } from './components/testimonial/testimonial.component';
+import { TimelineComponent } from './components/timeline/timeline.component';
+import { WhychooseComponent } from './components/whychoose/whychoose.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { FaqComponent } from './components/faq/faq.component';
     TopnavComponent,
     FooterComponent,
     HomeComponent,
-    FaqComponent
+    FaqComponent,
+    TestimonialComponent,
+    TimelineComponent,
+    WhychooseComponent
   ],
   imports: [
     BrowserModule,
