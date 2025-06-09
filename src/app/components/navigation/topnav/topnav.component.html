@@ -1,1 +1,29 @@
-<p>topnav works!</p>
+<div class="topnavbar">
+    <div class="container">
+        <div class="child brand">
+            <img width="48" height="48" src="https://img.icons8.com/color/48/magento.png" alt="magento" />
+        </div>
+        <div class="child solar-links">
+            <div>ThinkEarth 360</div>
+        </div>
+        <div class="child social">
+            <ul>
+                <li *ngFor="let item of navlinks"><a id="item.id" [class.active]="activeDropdown === item.title"
+                        (click)="toggleDropdown(item.title, $event)">{{item.title | titlecase}} <i
+                            *ngIf="item.caret === true" class="fa fa-caret-down"></i></a>
+                    <div class="dropdown" *ngIf="activeDropdown === item.title">
+                        <a *ngFor="let item of item.children" href="#">{{item.subtitle | titlecase}}</a>
+                    </div>
+                </li>
+                |&nbsp;
+                <li>
+                    <a href="">Book a free consultation</a>
+                </li>
+                |&nbsp;
+                <li>
+                    <a href="">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
