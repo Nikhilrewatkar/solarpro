@@ -1,72 +1,112 @@
-<div class="solar-calculator">
-    <div class="calculator-header">
-        <h2><i class="fas fa-solar-panel"></i> Solar Savings Calculator</h2>
-        <p>Estimate your solar panel needs and potential savings</p>
-    </div>
+<div class="calculator-container">
+    <div class="input-section">
+        <h2>Calculate Your Solar Savings Now!</h2>
+        <p>Unlock savings, build that dream fund, and start ticking off your checklist.</p>
 
-    <div class="calculator-form">
         <div class="form-group">
-            <label for="electricity-usage">Monthly Electricity Usage (kWh)</label>
-            <input type="number" id="electricity-usage" [(ngModel)]="monthlyUsage" (input)="calculate()">
-            <div class="input-hint">Average US household: 877 kWh</div>
+            <label for="avgBill">Average Monthly Electricity Bill (₹)</label>
+            <input type="number" id="avgBill" [(ngModel)]="avgBill" class="form-control">
         </div>
 
-        <div class="form-group">
-            <label for="roof-space">Available Roof Space (sq ft)</label>
-            <input type="number" id="roof-space" [(ngModel)]="roofSpace" (input)="calculate()">
-        </div>
+        <p>Take control of your electricty bill with Solarpro
+            Vidarbha's #1 home solar company!</p>
 
-        <div class="form-group">
-            <label for="sunlight-hours">Daily Sunlight Hours</label>
-            <select id="sunlight-hours" [(ngModel)]="sunlightHours" (change)="calculate()">
-                <option value="3">Low (3 hours)</option>
-                <option value="4">Moderate (4 hours)</option>
-                <option value="5" selected>Average (5 hours)</option>
-                <option value="6">High (6 hours)</option>
-                <option value="7">Very High (7 hours)</option>
+        <!-- <div class="form-group">
+            <label for="state">State</label>
+            <select id="state" [(ngModel)]="state" class="form-control">
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Gujarat">Gujarat</option>
             </select>
         </div>
 
         <div class="form-group">
-            <label for="electricity-rate">Current Electricity Rate ($/kWh)</label>
-            <input type="number" step="0.01" id="electricity-rate" [(ngModel)]="electricityRate" (input)="calculate()">
-            <div class="input-hint">National average: $0.16/kWh</div>
+            <label for="rooftopArea">Available Rooftop Area (sq. ft.)</label>
+            <input type="number" id="rooftopArea" [(ngModel)]="rooftopArea" class="form-control">
         </div>
+
+        <button class="calculate-btn">Calculate</button> -->
     </div>
 
-    <div class="results-container" *ngIf="showResults">
-        <div class="result-card">
-            <div class="result-icon"><i class="fas fa-solar-panel"></i></div>
-            <div class="result-value">{{panelsNeeded}}</div>
-            <div class="result-label">Solar Panels Needed</div>
+    <div class="results-section">
+        <div class="results-column">
+            <div class="result-card system-size">
+                <h3>Required System Size</h3>
+                <div class="result-item">
+                    <span class="label">System Size:</span>
+                    <span class="value">{{calculateResults().requiredSystemSize}} kW</span>
+                </div>
+                <div class="result-item">
+                    <span class="label">Roof Area:</span>
+                    <span class="value">{{calculateResults().roofAreaRequired}} sq. ft.</span>
+                </div>
+            </div>
+
+            <div class="result-card savings">
+                <h3>Your Solar Savings</h3>
+                <div class="result-item">
+                    <span class="label">Monthly:</span>
+                    <span class="value">₹{{calculateResults().monthlySavings}}</span>
+                </div>
+                <div class="result-item">
+                    <span class="label">Yearly:</span>
+                    <span class="value">₹{{calculateResults().yearlySavings}}</span>
+                </div>
+            </div>
         </div>
 
-        <div class="result-card">
-            <div class="result-icon"><i class="fas fa-bolt"></i></div>
-            <div class="result-value">{{systemSize}} kW</div>
-            <div class="result-label">System Size</div>
+        <div class="results-column">
+            <div class="result-card investment">
+                <h3>Your Investment</h3>
+                <div class="result-item">
+                    <span class="label">Total cost of plant:</span>
+                    <span class="value">₹{{calculateResults().totalCost}}</span>
+                </div>
+                <div class="result-item">
+                    <span class="label">Central Subsidy:</span>
+                    <span class="value">₹{{calculateResults().centralSubsidy}}</span>
+                </div>
+                <div class="result-item">
+                    <span class="label">Net Cost:</span>
+                    <span class="value">₹{{calculateResults().netCost}}</span>
+                </div>
+                <div class="result-item">
+                    <span class="label">Lifetime Savings:</span>
+                    <span class="value">₹{{calculateResults().lifetimeSavings}}</span>
+                </div>
+                <div class="result-item">
+                    <span class="label">Return on Investment:</span>
+                    <span class="value">{{calculateResults().roi}}% p.a.</span>
+                </div>
+            </div>
         </div>
 
-        <div class="result-card">
-            <div class="result-icon"><i class="fas fa-dollar-sign"></i></div>
-            <div class="result-value">${{monthlySavings | number:'1.0-0'}}</div>
-            <div class="result-label">Monthly Savings</div>
+        <div class="results-column">
+            <div class="result-card financing">
+                <h3>Get your solar at ₹0 investment</h3>
+                <div class="result-item">
+                    <span class="label">Minimum Down Payment:</span>
+                    <span class="value">₹{{calculateResults().minDownPayment}}</span>
+                </div>
+                <div class="result-item">
+                    <span class="label">Subsidy:</span>
+                    <span class="value">₹{{calculateResults().centralSubsidy}}</span>
+                </div>
+                <div class="result-item">
+                    <span class="label">Net Down Payment:</span>
+                    <span class="value">₹{{calculateResults().netDownPayment}}</span>
+                </div>
+                <div class="result-item">
+                    <span class="label">EMI tenure:</span>
+                    <span class="value">{{calculateResults().emiTenure}} Years</span>
+                </div>
+                <div class="result-item">
+                    <span class="label">EMI:</span>
+                    <span class="value">₹{{calculateResults().emi}}</span>
+                </div>
+            </div>
         </div>
-
-        <div class="result-card">
-            <div class="result-icon"><i class="fas fa-calendar-alt"></i></div>
-            <div class="result-value">{{paybackPeriod}} years</div>
-            <div class="result-label">Payback Period</div>
-        </div>
-    </div>
-
-    <div class="assumptions">
-        <h4>Calculation Assumptions:</h4>
-        <ul>
-            <li>Standard 400W solar panels (3.5x5.5 ft each)</li>
-            <li>System efficiency factor: 75%</li>
-            <li>Average installation cost: $2.50 per watt</li>
-            <li>Federal tax credit: 30%</li>
-        </ul>
     </div>
 </div>

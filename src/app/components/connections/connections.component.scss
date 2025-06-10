@@ -1,0 +1,39 @@
+$bg-color: #f7f7f7;
+$font-color: #333;
+
+@import '../../../assets/colors';
+.banner {
+    display: flex;
+    justify-content: space-around;
+    background: $bg-color;
+    padding: 20px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+
+    .stat {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: $primary;
+        width: 25%; // Each stat takes equal width on larger screens
+
+        .number {
+            font-size: 2rem;
+            font-weight: bold;
+            transition: transform 0.5s ease-in-out;
+        }
+    }
+}
+
+// Mobile view (screens below 768px)
+@media screen and (max-width: 768px) {
+    .banner {
+        flex-direction: column; // Stack items in column format
+        align-items: center;
+    }
+
+    .stat {
+        width: 100%; // Each stat takes full width on mobile
+        margin-bottom: 15px;
+    }
+}

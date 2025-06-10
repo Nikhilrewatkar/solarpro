@@ -12,6 +12,7 @@ import { TimelineComponent } from './components/timeline/timeline.component';
 import { WhychooseComponent } from './components/whychoose/whychoose.component';
 import { CalculatorComponent } from './components/calculator/calculator.component';
 import { FormsModule } from '@angular/forms';
+import { ConnectionsComponent } from './components/connections/connections.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     TimelineComponent,
     WhychooseComponent,
     CalculatorComponent,
+    ConnectionsComponent,
   ],
   imports: [
     BrowserModule,

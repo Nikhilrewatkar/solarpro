@@ -12,17 +12,16 @@ export class TopnavComponent implements OnInit {
 
   navlinks = [
     {
-      'id': 1, 'title': 'our offerings', 'caret': true, 'children': [
-        { 'subtitle': 'offering 1' },
-        { 'subtitle': 'offering 2' },
-        { 'subtitle': 'offering 3' },
+      'id': 1, 'title': 'Our capabilities', 'caret': true, 'children': [
+        { 'subtitle': 'home' },
+        { 'subtitle': 'commercial' },
+        { 'subtitle': 'housing society' },
       ]
     },
     {
       'id': 2, 'title': 'solar solutions', 'caret': true, 'children': [
-        { 'subtitle': 'solutions 1' },
-        { 'subtitle': 'solutions 2' },
-        { 'subtitle': 'solutions 3' },
+        { 'subtitle': 'off-grid' },
+        { 'subtitle': 'on-grid' },
       ]
     },
     { 'id': 3, 'title': 'our presence' },

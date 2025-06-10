@@ -8,48 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class TestimonialComponent implements OnInit {
 
   constructor() { }
-  // currentSlide = 0;
-  // autoSlideInterval: any;
-
-  // testimonials = [
-  //   {
-  //     quote: 'Switching to solar saved us thousands. The team was professional and the process was smooth!',
-  //     author: 'Priya Sharma',
-  //     image: '../../../assets/images/smartboy_white.png'
-  //   },
-  //   {
-  //     quote: 'Excellent service and great savings on our electricity bills. Highly recommended!',
-  //     author: 'Arjun Patel',
-  //     image: '../../../assets/images/smartboy_white.png'
-  //   },
-  //   {
-  //     quote: 'The installation was quick, and the system works perfectly. Solar is the future!',
-  //     author: 'Meera Kulkarni',
-  //     image: '../../../assets/images/smartboy_white.png'
-  //   }
-  // ];
-
-  // ngOnInit(): void {
-  //   this.startAutoSlide();
-  // }
-
-  // ngOnDestroy(): void {
-  //   clearInterval(this.autoSlideInterval);
-  // }
-
-  // startAutoSlide(): void {
-  //   this.autoSlideInterval = setInterval(() => {
-  //     this.nextSlide();
-  //   }, 5000); // Change slide every 5 seconds
-  // }
-
-  // nextSlide(): void {
-  //   this.currentSlide = (this.currentSlide + 1) % this.testimonials.length;
-  // }
-
-  // prevSlide(): void {
-  //   this.currentSlide = (this.currentSlide - 1 + this.testimonials.length) % this.testimonials.length;
-  // }
 
 
 
