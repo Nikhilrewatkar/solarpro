@@ -1,0 +1,72 @@
+<div class="solar-calculator">
+    <div class="calculator-header">
+        <h2><i class="fas fa-solar-panel"></i> Solar Savings Calculator</h2>
+        <p>Estimate your solar panel needs and potential savings</p>
+    </div>
+
+    <div class="calculator-form">
+        <div class="form-group">
+            <label for="electricity-usage">Monthly Electricity Usage (kWh)</label>
+            <input type="number" id="electricity-usage" [(ngModel)]="monthlyUsage" (input)="calculate()">
+            <div class="input-hint">Average US household: 877 kWh</div>
+        </div>
+
+        <div class="form-group">
+            <label for="roof-space">Available Roof Space (sq ft)</label>
+            <input type="number" id="roof-space" [(ngModel)]="roofSpace" (input)="calculate()">
+        </div>
+
+        <div class="form-group">
+            <label for="sunlight-hours">Daily Sunlight Hours</label>
+            <select id="sunlight-hours" [(ngModel)]="sunlightHours" (change)="calculate()">
+                <option value="3">Low (3 hours)</option>
+                <option value="4">Moderate (4 hours)</option>
+                <option value="5" selected>Average (5 hours)</option>
+                <option value="6">High (6 hours)</option>
+                <option value="7">Very High (7 hours)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="electricity-rate">Current Electricity Rate ($/kWh)</label>
+            <input type="number" step="0.01" id="electricity-rate" [(ngModel)]="electricityRate" (input)="calculate()">
+            <div class="input-hint">National average: $0.16/kWh</div>
+        </div>
+    </div>
+
+    <div class="results-container" *ngIf="showResults">
+        <div class="result-card">
+            <div class="result-icon"><i class="fas fa-solar-panel"></i></div>
+            <div class="result-value">{{panelsNeeded}}</div>
+            <div class="result-label">Solar Panels Needed</div>
+        </div>
+
+        <div class="result-card">
+            <div class="result-icon"><i class="fas fa-bolt"></i></div>
+            <div class="result-value">{{systemSize}} kW</div>
+            <div class="result-label">System Size</div>
+        </div>
+
+        <div class="result-card">
+            <div class="result-icon"><i class="fas fa-dollar-sign"></i></div>
+            <div class="result-value">${{monthlySavings | number:'1.0-0'}}</div>
+            <div class="result-label">Monthly Savings</div>
+        </div>
+
+        <div class="result-card">
+            <div class="result-icon"><i class="fas fa-calendar-alt"></i></div>
+            <div class="result-value">{{paybackPeriod}} years</div>
+            <div class="result-label">Payback Period</div>
+        </div>
+    </div>
+
+    <div class="assumptions">
+        <h4>Calculation Assumptions:</h4>
+        <ul>
+            <li>Standard 400W solar panels (3.5x5.5 ft each)</li>
+            <li>System efficiency factor: 75%</li>
+            <li>Average installation cost: $2.50 per watt</li>
+            <li>Federal tax credit: 30%</li>
+        </ul>
+    </div>
+</div>

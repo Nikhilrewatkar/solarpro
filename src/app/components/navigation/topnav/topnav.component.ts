@@ -6,9 +6,10 @@ import { Component, HostListener, OnInit } from '@angular/core';
   styleUrls: ['./topnav.component.scss']
 })
 export class TopnavComponent implements OnInit {
-
   isDropdownOpen = false;
   activeDropdown: string | null = null;
+  isMobileMenuOpen = false;
+
   navlinks = [
     {
       'id': 1, 'title': 'our offerings', 'caret': true, 'children': [
@@ -31,27 +32,36 @@ export class TopnavComponent implements OnInit {
 
   constructor() { }
 
-
-
   ngOnInit(): void {
   }
 
   toggleDropdown(menu: string, event: MouseEvent): void {
-    event.stopPropagation(); // Prevent outside click from closing immediately
+    event.stopPropagation();
     this.activeDropdown = this.activeDropdown === menu ? null : menu;
+  }
+
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    if (!this.isMobileMenuOpen) {
+      this.activeDropdown = null;
+    }
   }
 
   @HostListener('document:click', ['$event'])
   closeDropdown(event: MouseEvent): void {
     const target = event.target as HTMLElement;
-    if (!target.closest('.menu-item')) {
+    if (!target.closest('.menu-item') && !target.closest('.mobile-menu-button')) {
       this.activeDropdown = null;
     }
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    // Close mobile menu when screen size increases beyond mobile breakpoint
+    if (window.innerWidth > 768) {
+      this.isMobileMenuOpen = false;
+      this.activeDropdown = null;
+    }
+  }
 }
-
-
-
-
 

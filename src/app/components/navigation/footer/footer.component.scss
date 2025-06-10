@@ -1,7 +1,8 @@
 @import '../../../../assets/colors';
 
 .footer {
-    background: $primary;
+    // background: $primary;
+    background: linear-gradient(135deg, darkcyan 0%, $primary 100%);
     color: #ffffff;
     padding: 40px 20px;
     font-family: 'Arial', sans-serif;

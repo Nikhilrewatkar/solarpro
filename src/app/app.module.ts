@@ -10,6 +10,8 @@ import { FaqComponent } from './components/faq/faq.component';
 import { TestimonialComponent } from './components/testimonial/testimonial.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { WhychooseComponent } from './components/whychoose/whychoose.component';
+import { CalculatorComponent } from './components/calculator/calculator.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import { WhychooseComponent } from './components/whychoose/whychoose.component';
     FaqComponent,
     TestimonialComponent,
     TimelineComponent,
-    WhychooseComponent
+    WhychooseComponent,
+    CalculatorComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
