@@ -7,53 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestimonialComponent implements OnInit {
 
-  constructor() { }
 
+  ngOnInit(): void {
 
-
+  }
   testimonials = [
     {
-      image: 'https://i.pravatar.cc/150?img=1',
-      text: 'Solar energy helped us save 70% on our energy bills. Highly recommend this team!',
-      name: 'Anita Deshmukh',
-      position: 'Homeowner – Pune',
+      name: 'Kishore Reddy',
+      location: 'Telangana',
+      text: `My aspiration to create a sustainable, carbon-free world... I wholeheartedly recommend SolarSquare!`
     },
     {
-      image: 'https://i.pravatar.cc/150?img=2',
-      text: 'Great installation and support. Reliable and professional!',
-      name: 'Rahul Patil',
-      position: 'Business Owner – Nagpur',
+      name: 'Braj Bhushan',
+      location: 'Uttar Pradesh',
+      text: `I am a working person, but the SolarSquare team did everything perfectly... they did everything else.`
     },
     {
-      image: 'https://i.pravatar.cc/150?img=3',
-      text: 'Switched to solar last year and couldn’t be happier with the performance.',
-      name: 'Sneha Kulkarni',
-      position: 'Architect – Nashik',
+      name: 'Gandharv Chauhan',
+      location: 'Rajasthan',
+      text: `Being an engineer myself, I am extremely satisfied with the team... I highly recommend SolarSquare.`
     }
   ];
 
-  currentIndex = 0;
-  intervalId: any;
-
-  ngOnInit(): void {
-    this.startAutoSlide();
-  }
-
-  startAutoSlide() {
-    this.intervalId = setInterval(() => {
-      this.currentIndex = (this.currentIndex + 1) % this.testimonials.length;
-    }, 4000); // every 4 seconds
-  }
-
-  ngOnDestroy(): void {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-    }
-  }
 }
-
-
-
-
-
-

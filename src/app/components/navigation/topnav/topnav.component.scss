@@ -125,7 +125,7 @@
                             position: static;
                             width: 100%;
                             box-shadow: none;
-                            background-color: darken($primary, 5%);
+                            background-color: $primary;
                             margin-top: 5px;
 
                             a {

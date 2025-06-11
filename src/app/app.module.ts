@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,8 +13,8 @@ import { TestimonialComponent } from './components/testimonial/testimonial.compo
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { WhychooseComponent } from './components/whychoose/whychoose.component';
 import { CalculatorComponent } from './components/calculator/calculator.component';
-import { FormsModule } from '@angular/forms';
 import { ConnectionsComponent } from './components/connections/connections.component';
+import { ConsultationFormComponent } from './components/consultation-form/consultation-form.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +28,14 @@ import { ConnectionsComponent } from './components/connections/connections.compo
     WhychooseComponent,
     CalculatorComponent,
     ConnectionsComponent,
+    ConsultationFormComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

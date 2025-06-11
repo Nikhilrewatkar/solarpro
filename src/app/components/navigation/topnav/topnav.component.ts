@@ -12,6 +12,9 @@ export class TopnavComponent implements OnInit {
 
   navlinks = [
     {
+      'id': 1, 'title': 'home', 'routerlink': '/home'
+    },
+    {
       'id': 1, 'title': 'Our capabilities', 'caret': true, 'children': [
         { 'subtitle': 'home' },
         { 'subtitle': 'commercial' },
@@ -25,8 +28,7 @@ export class TopnavComponent implements OnInit {
       ]
     },
     { 'id': 3, 'title': 'our presence' },
-    { 'id': 4, 'title': 'blog' },
-    { 'id': 5, 'title': 'more' },
+    { 'id': 4, 'title': 'solar calculator', 'routerlink': '/calculator' },
   ]
 
   constructor() { }

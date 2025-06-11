@@ -15,7 +15,7 @@
         <div class="child social" [class.mobile-menu-open]="isMobileMenuOpen">
             <ul>
                 <li *ngFor="let item of navlinks" class="menu-item">
-                    <a id="item.id" [class.active]="activeDropdown === item.title"
+                    <a id="item.id" [routerLink]="[item.routerlink]" [class.active]="activeDropdown === item.title"
                         (click)="toggleDropdown(item.title, $event)">
                         {{item.title | titlecase}}
                         <i *ngIf="item.caret === true" class="fa fa-caret-down"></i>
@@ -26,7 +26,7 @@
                 </li>
                 <li class="divider">|</li>
                 <li>
-                    <a href="">Book a free consultation</a>
+                    <a [routerLink]="['/consultation']">Book a free consultation</a>
                 </li>
                 <li class="divider">|</li>
                 <li>
