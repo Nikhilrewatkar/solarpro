@@ -21,12 +21,6 @@
         font-weight: 700;
         margin-top: 100px;
         margin-bottom: 20px;
-
-        // text-shadow:
-        //     -1px -1px 0 yellow,
-        //     1px -1px 0 yellow,
-        //     -1px 1px 0 yellow,
-        //     1px 1px 0 yellow;
     }
 
     h5 {
@@ -39,4 +33,27 @@
     }
 
 
+}
+
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        h1 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        h5 {
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        h6 {
+            font-style: italic;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+    }
 }

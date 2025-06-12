@@ -1,7 +1,8 @@
+@import '../../../assets/colors';
+
 $bg-color: #f7f7f7;
 $font-color: #333;
 
-@import '../../../assets/colors';
 .banner {
     display: flex;
     justify-content: space-around;
@@ -15,7 +16,7 @@ $font-color: #333;
         font-size: 1.5rem;
         font-weight: bold;
         color: $primary;
-        width: 25%; // Each stat takes equal width on larger screens
+        width: 25%;
 
         .number {
             font-size: 2rem;
@@ -25,15 +26,23 @@ $font-color: #333;
     }
 }
 
-// Mobile view (screens below 768px)
 @media screen and (max-width: 768px) {
     .banner {
-        flex-direction: column; // Stack items in column format
+        flex-direction: column;
         align-items: center;
     }
 
+    p {
+        font-size: 20px;
+    }
+
     .stat {
-        width: 100%; // Each stat takes full width on mobile
-        margin-bottom: 15px;
+        width: 100%;
+        margin-bottom: 20px !important;
+        font-size: 20px;
+
+        .number {
+            font-size: 20px !important;
+        }
     }
 }
