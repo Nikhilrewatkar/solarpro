@@ -3,7 +3,7 @@
 .topnavbar {
     background-color: $primary;
     // background: linear-gradient(135deg, darkcyan 0%, $primary 100%);
-    padding: 13px;
+    padding: 10px;
     position: relative;
 
     .container {
@@ -51,7 +51,7 @@
                     .dropdown {
                         display: block;
                         position: absolute;
-                        top: 100%;
+                        top: 190%;
                         left: 0;
                         background-color: white;
                         min-width: 150px;

@@ -15,6 +15,7 @@ import { WhychooseComponent } from './components/whychoose/whychoose.component';
 import { CalculatorComponent } from './components/calculator/calculator.component';
 import { ConnectionsComponent } from './components/connections/connections.component';
 import { ConsultationFormComponent } from './components/consultation-form/consultation-form.component';
+import { TeamsComponent } from './components/teams/teams.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ConsultationFormComponent } from './components/consultation-form/consul
     CalculatorComponent,
     ConnectionsComponent,
     ConsultationFormComponent,
+    TeamsComponent,
   ],
   imports: [
     ReactiveFormsModule,
