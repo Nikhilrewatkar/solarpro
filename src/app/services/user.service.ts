@@ -1,27 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
+import { Firestore, addDoc, collection, collectionData, doc, updateDoc } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private apiUrl = 'http://localhost:3000/users';
+  constructor(private http: HttpClient, private firestore: Firestore) { }
 
-  constructor(private http: HttpClient) { }
-
-
-  addUser(user: any): Observable<any> {
-    return this.http.post(this.apiUrl, user);
+  updateUserStatus(id: string, body: any): Observable<any> {
+    const userDocRef = doc(this.firestore, `users/${id}`);
+    return from(updateDoc(userDocRef, body));
   }
 
   getUsers(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+    const usersRef = collection(this.firestore, 'users');
+    return collectionData(usersRef, { idField: 'id' });
   }
 
-  updateUserStatus(id: number, body: any): Observable<any> {
-    return this.http.patch(`${this.apiUrl}/${id}`, body);
+  addUser(user: any): Observable<any> {
+    const usersRef = collection(this.firestore, 'users');
+    return from(addDoc(usersRef, user));
   }
 
 }

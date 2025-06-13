@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+// import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +21,7 @@ import { ConsultationFormComponent } from './components/consultation-form/consul
 import { TeamsComponent } from './components/teams/teams.component';
 import { LoginComponent } from './components/admin/login/login.component';
 import { UsersComponent } from './components/admin/users/users.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,9 @@ import { UsersComponent } from './components/admin/users/users.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]
