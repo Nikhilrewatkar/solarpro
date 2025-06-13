@@ -1,7 +1,5 @@
 .table-container {
-    // padding: 1rem;
-    overflow-y: auto;
-    overflow-x: none;
+    overflow-x: auto;
 }
 
 .custom-table {
@@ -27,5 +25,45 @@
 
     tr:hover {
         background-color: #f9f9f9;
+    }
+
+    // Mobile card view styles
+    @media (max-width: 768px) {
+        thead {
+            display: none;
+        }
+
+        tr {
+            display: block;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+            padding: 10px;
+            background: #fff;
+        }
+
+        td,
+        th {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 12px;
+            border: none;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        td::before {
+            content: attr(data-label);
+            font-weight: bold;
+            flex: 1;
+            color: #555;
+        }
+
+        td {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
     }
 }
