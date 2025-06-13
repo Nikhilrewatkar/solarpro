@@ -1,0 +1,57 @@
+<!-- <app-topnav></app-topnav> -->
+<br>
+<div class="container">
+
+
+    <h5>All USers</h5>
+    <div class="table-container" *ngIf="data.length > 0; else noData">
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>UserID</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Company Name</th>
+                    <th>City</th>
+                    <th>Pin Code</th>
+                    <th>WhatsApp</th>
+                    <th>Monthly Bill</th>
+                    <th>Approval Status</th>
+                    <th>Designation</th>
+                    <th>Society Name</th>
+                    <th>User Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data">
+                    <td>{{item.id}}</td>
+                    <td>{{ item.fullName | titlecase }} </td>
+                    <td>{{item.type | titlecase}}</td>
+                    <td>{{ item.companyName | titlecase }}</td>
+                    <td>{{ item.city | titlecase }}</td>
+                    <td>{{ item.pinCode }}</td>
+                    <td>{{ item.whatsapp }}</td>
+                    <td>{{ item.monthlyBill | currency:'INR' }}</td>
+                    <td>{{ item.approvalStatus | titlecase }}</td>
+                    <td>{{ item.designation | titlecase }}</td>
+                    <td>{{ item.societyName | titlecase }}</td>
+                    <th><button (click)="updateUserStatus(item)" class="btn" [ngStyle]="{
+                                              'background-color': item.userStatus === 'new' ? 'green' : 'blue',
+                                              'color': 'white'
+                                            }">
+                            {{ item.userStatus === 'new' ? 'Check' : 'Checked' }}
+                        </button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <ng-template #noData>
+        <p>No data found.</p>
+    </ng-template>
+    <br>
+
+    <button class="btn btn-primary" [routerLink]="['/home']">Back to home</button>
+
+</div>

@@ -1,72 +1,112 @@
 <app-topnav></app-topnav>
-<br>
-<div class="form-wrapper">
-    <div class="tabs">
-        <button [class.active]="selectedTab === 'residential'" (click)="selectTab('residential')">Residential</button>
-        <button [class.active]="selectedTab === 'society'" (click)="selectTab('society')">Housing Society</button>
-        <button [class.active]="selectedTab === 'commercial'" (click)="selectTab('commercial')">Commercial</button>
+<div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="form-wrapper">
+            <div class="tabs">
+                <button [class.active]="selectedTab === 'residential'"
+                    (click)="selectTab('residential')">Residential</button>
+                <button [class.active]="selectedTab === 'society'" (click)="selectTab('society')">Housing
+                    Society</button>
+                <button [class.active]="selectedTab === 'commercial'"
+                    (click)="selectTab('commercial')">Commercial</button>
+            </div>
+
+            <form *ngIf="selectedTab === 'residential'" [formGroup]="residentialForm"
+                (ngSubmit)="submitForm('residential')">
+                <input formControlName="fullName" placeholder="Full Name *" required />
+                <input formControlName="whatsapp" placeholder="WhatsApp number *" required />
+                <input formControlName="pinCode" placeholder="Pin code *" required />
+
+                <label>What is your average monthly bill? *</label>
+                <div class="options">
+                    <button *ngFor="let range of billRanges" type="button"
+                        [class.active]="residentialForm.value.monthlyBill === range"
+                        (click)="residentialForm.patchValue({ monthlyBill: range })">{{ range }}</button>
+                </div>
+
+                <div>
+                    <label><input type="checkbox" formControlName="terms" /> I agree to terms</label>
+                </div>
+
+                <button type="submit" [disabled]="!residentialForm.valid">Submit Details</button>
+            </form>
+
+            <form *ngIf="selectedTab === 'society'" [formGroup]="societyForm" (ngSubmit)="submitForm('society')">
+                <input formControlName="fullName" placeholder="Full Name *" required />
+                <input formControlName="societyName" placeholder="Name of Housing Society *" required />
+                <input formControlName="pinCode" placeholder="Pin code *" required />
+                <input formControlName="whatsapp" placeholder="WhatsApp number *" required />
+
+                <select formControlName="monthlyBill">
+                    <option value="" disabled>Select Monthly Bill *</option>
+                    <option *ngFor="let amount of [1000, 5000, 10000, 20000, 50000]">{{ amount }}</option>
+                </select>
+
+                <label>Designation *</label>
+                <div class="options">
+                    <button *ngFor="let d of designations" type="button"
+                        [class.active]="societyForm.value.designation === d"
+                        (click)="societyForm.patchValue({ designation: d })">{{ d }}</button>
+                </div>
+
+                <select formControlName="approvalStatus">
+                    <option value="" disabled>Select Approval Status *</option>
+                    <option>Approved</option>
+                    <option>Pending</option>
+                </select>
+
+                <div>
+                    <label><input type="checkbox" formControlName="terms" /> I agree to terms</label>
+                </div>
+
+                <button type="submit" [disabled]="!societyForm.valid">Submit Details</button>
+            </form>
+
+            <form *ngIf="selectedTab === 'commercial'" [formGroup]="commercialForm"
+                (ngSubmit)="submitForm('commercial')">
+                <input formControlName="fullName" placeholder="Full Name *" required />
+                <input formControlName="companyName" placeholder="Company Name *" required />
+                <input formControlName="city" placeholder="City *" required />
+                <input formControlName="pinCode" placeholder="Pin code *" required />
+                <input formControlName="whatsapp" placeholder="WhatsApp number *" required />
+                <input formControlName="monthlyBill" placeholder="Average Monthly Bill *" required />
+
+                <div>
+                    <label><input type="checkbox" formControlName="terms" /> I agree to terms</label>
+                </div>
+
+                <button type="submit" [disabled]="!commercialForm.valid">Submit Details</button>
+            </form>
+        </div>
     </div>
-
-    <form *ngIf="selectedTab === 'residential'" [formGroup]="residentialForm" (ngSubmit)="submitForm('residential')">
-        <input formControlName="fullName" placeholder="Full Name *" required />
-        <input formControlName="whatsapp" placeholder="WhatsApp number *" required />
-        <input formControlName="pinCode" placeholder="Pin code *" required />
-
-        <label>What is your average monthly bill? *</label>
-        <div class="options">
-            <button *ngFor="let range of billRanges" type="button" [class.active]="residentialForm.value.bill === range"
-                (click)="residentialForm.patchValue({ bill: range })">{{ range }}</button>
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="solar-table-wrapper">
+            <table class="solar-table">
+                <thead>
+                    <tr>
+                        <th>Solar System Size</th>
+                        <th>Monthly installment<br>(for 5 years)</th>
+                        <th>Monthly savings<br>(for 25 years)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>3kW</td>
+                        <td>₹3,000</td>
+                        <td class="highlight">₹5,500+</td>
+                    </tr>
+                    <tr>
+                        <td>4kW</td>
+                        <td>₹4,100</td>
+                        <td class="highlight">₹7,000+</td>
+                    </tr>
+                    <tr>
+                        <td>5kW</td>
+                        <td>₹5,200</td>
+                        <td class="highlight">₹11,000+</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
-        <div>
-            <label><input type="checkbox" formControlName="terms" /> I agree to terms</label>
-        </div>
-
-        <button type="submit" [disabled]="!residentialForm.valid">Submit Details</button>
-    </form>
-
-    <form *ngIf="selectedTab === 'society'" [formGroup]="societyForm" (ngSubmit)="submitForm('society')">
-        <input formControlName="fullName" placeholder="Full Name *" required />
-        <input formControlName="societyName" placeholder="Name of Housing Society *" required />
-        <input formControlName="pinCode" placeholder="Pin code *" required />
-        <input formControlName="whatsapp" placeholder="WhatsApp number *" required />
-
-        <select formControlName="monthlyBill">
-            <option value="" disabled>Select Monthly Bill *</option>
-            <option *ngFor="let amount of [1000, 5000, 10000, 20000, 50000]">{{ amount }}</option>
-        </select>
-
-        <label>Designation *</label>
-        <div class="options">
-            <button *ngFor="let d of designations" type="button" [class.active]="societyForm.value.designation === d"
-                (click)="societyForm.patchValue({ designation: d })">{{ d }}</button>
-        </div>
-
-        <select formControlName="approvalStatus">
-            <option value="" disabled>Select Approval Status *</option>
-            <option>Approved</option>
-            <option>Pending</option>
-        </select>
-
-        <div>
-            <label><input type="checkbox" formControlName="terms" /> I agree to terms</label>
-        </div>
-
-        <button type="submit" [disabled]="!societyForm.valid">Submit Details</button>
-    </form>
-
-    <form *ngIf="selectedTab === 'commercial'" [formGroup]="commercialForm" (ngSubmit)="submitForm('commercial')">
-        <input formControlName="fullName" placeholder="Full Name *" required />
-        <input formControlName="companyName" placeholder="Company Name *" required />
-        <input formControlName="city" placeholder="City *" required />
-        <input formControlName="pinCode" placeholder="Pin code *" required />
-        <input formControlName="whatsapp" placeholder="WhatsApp number *" required />
-        <input formControlName="monthlyBill" placeholder="Average Monthly Bill *" required />
-
-        <div>
-            <label><input type="checkbox" formControlName="terms" /> I agree to terms</label>
-        </div>
-
-        <button type="submit" [disabled]="!commercialForm.valid">Submit Details</button>
-    </form>
+    </div>
 </div>

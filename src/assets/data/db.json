@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "fullName": "Nikhil Rewatkar",
+      "societyName": "Gokul Vrindawan Society",
+      "pinCode": "441111",
+      "whatsapp": "9665995638",
+      "monthlyBill": "10000",
+      "designation": "Management committee member",
+      "approvalStatus": "Pending",
+      "terms": true,
+      "type": "society",
+      "userStatus": "existing",
+      "id": 1
+    }
+  ]
+}

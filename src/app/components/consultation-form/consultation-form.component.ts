@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-consultation-form',
@@ -27,12 +28,12 @@ export class ConsultationFormComponent implements OnInit {
   societyForm: FormGroup;
   commercialForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private userService: UserService) {
     this.residentialForm = this.fb.group({
       fullName: ['', Validators.required],
       whatsapp: ['', Validators.required],
       pinCode: ['', Validators.required],
-      bill: ['', Validators.required],
+      monthlyBill: ['', Validators.required],
       terms: [true, Validators.requiredTrue]
     });
 
@@ -76,14 +77,13 @@ export class ConsultationFormComponent implements OnInit {
         break;
     }
 
-    debugger;
+    formData['type'] = type;
+    formData['userStatus'] = "new";
 
     console.log('Submitting:', formData);
 
-    // Replace with your API endpoint
-    this.http.post('https://your-api-endpoint.com/submit', formData).subscribe({
-      next: res => alert('Submitted successfully!'),
-      error: err => alert('Submission failed. Please try again.')
+    this.userService.addUser(formData).subscribe(() => {
+      alert("done")
     });
   }
 

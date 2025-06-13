@@ -1,9 +1,11 @@
+@import '../../../assets/colors';
+
 .form-wrapper {
     border: 1px solid #ccc;
     border-radius: 12px;
     padding: 20px;
     max-width: 600px;
-    margin: auto;
+    //  margin: auto;
     background: #fff;
 
     .tabs {
@@ -51,7 +53,7 @@
                 cursor: pointer;
 
                 &.active {
-                    background: #4444ff;
+                    background: $primary;
                     color: white;
                 }
             }
@@ -63,6 +65,51 @@
             background: #001133;
             color: white;
             border-radius: 8px;
+        }
+    }
+}
+
+.row {
+    width: 100%;
+    padding: 20px;
+}
+
+.solar-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+
+    thead {
+        background-color: $primary; // Bright cyan
+        color: #fff;
+        font-weight: bold;
+        text-align: center;
+
+        th {
+            padding: 16px;
+            font-size: 16px;
+        }
+    }
+
+    tbody {
+        tr {
+            background-color: #f8f8f8;
+
+            &:nth-child(even) {
+                background-color: #ffffff;
+            }
+
+            td {
+                padding: 14px;
+                text-align: center;
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+            .highlight {
+                color: #0010af;
+                font-weight: 700;
+            }
         }
     }
 }

@@ -16,6 +16,8 @@ import { CalculatorComponent } from './components/calculator/calculator.componen
 import { ConnectionsComponent } from './components/connections/connections.component';
 import { ConsultationFormComponent } from './components/consultation-form/consultation-form.component';
 import { TeamsComponent } from './components/teams/teams.component';
+import { LoginComponent } from './components/admin/login/login.component';
+import { UsersComponent } from './components/admin/users/users.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { TeamsComponent } from './components/teams/teams.component';
     ConnectionsComponent,
     ConsultationFormComponent,
     TeamsComponent,
+    LoginComponent,
+    UsersComponent,
   ],
   imports: [
     ReactiveFormsModule,
