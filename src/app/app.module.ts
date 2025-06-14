@@ -22,6 +22,7 @@ import { TeamsComponent } from './components/teams/teams.component';
 import { LoginComponent } from './components/admin/login/login.component';
 import { UsersComponent } from './components/admin/users/users.component';
 import { environment } from 'src/environments/environment';
+import { AboutusComponent } from './components/aboutus/aboutus.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { environment } from 'src/environments/environment';
     TeamsComponent,
     LoginComponent,
     UsersComponent,
+    AboutusComponent,
   ],
   imports: [
     ReactiveFormsModule,

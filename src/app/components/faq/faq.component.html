@@ -1,4 +1,4 @@
-<!-- <div class="faq-section container py-5">
+<div class="faq-section container py-5">
     <h2 class="text-center mb-4">Frequently Asked Questions</h2>
 
     <div class="accordion">
@@ -9,32 +9,6 @@
             </div>
             <div class="answer" *ngIf="faq.open">
                 {{ faq.answer }}
-            </div>
-        </div>
-    </div>
-</div> -->
-
-<div class="faq-section container py-5">
-    <div class="row align-items-center">
-        <!-- Left Side: Image -->
-        <div class="col-md-6 mb-4 mb-md-0">
-            <img src="assets/images/smartboy_white.png" alt="Solar Technician" class="img-fluid rounded" />
-        </div>
-
-        <!-- Right Side: FAQ Accordion -->
-        <div class="col-md-6">
-            <h2 class="mb-4 text-primary">Frequently Asked Questions</h2>
-
-            <div class="accordion">
-                <div class="faq-item" *ngFor="let faq of faqs; let i = index">
-                    <div class="question" (click)="toggleFAQ(i)">
-                        {{ faq.question }}
-                        <span class="icon">{{ faq.open ? '-' : '+' }}</span>
-                    </div>
-                    <div class="answer" *ngIf="faq.open">
-                        {{ faq.answer }}
-                    </div>
-                </div>
             </div>
         </div>
     </div>

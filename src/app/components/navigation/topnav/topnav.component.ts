@@ -16,9 +16,9 @@ export class TopnavComponent implements OnInit {
     },
     {
       'id': 2, 'title': 'Our capabilities', 'caret': true, 'children': [
-        { 'subtitle': 'home' },
-        { 'subtitle': 'commercial' },
-        { 'subtitle': 'housing society' },
+        { 'subtitle': 'home services' },
+        { 'subtitle': 'commercial services' },
+        { 'subtitle': 'housing society services' },
       ]
     },
     {
@@ -27,7 +27,21 @@ export class TopnavComponent implements OnInit {
         { 'subtitle': 'on-grid' },
       ]
     },
-    { 'id': 4, 'title': 'our presence' },
+    {
+      'id': 4, 'title': 'our presence', 'caret': true, 'children': [
+        { 'subtitle': 'Nagpur' },
+        { 'subtitle': 'Wardha' },
+        { 'subtitle': 'Bhandara' },
+        { 'subtitle': 'Gondia' },
+        { 'subtitle': 'Chandrapur' },
+        { 'subtitle': 'Gadchiroli' },
+        { 'subtitle': 'Amravati' },
+        { 'subtitle': 'Akola' },
+        { 'subtitle': 'Yavatmal' },
+        { 'subtitle': 'Buldhana' },
+        { 'subtitle': 'Washim' },
+      ]
+    },
     { 'id': 5, 'title': 'solar calculator', 'routerlink': '/calculator' }
   ]
 
