@@ -15,20 +15,20 @@ export class TopnavComponent implements OnInit {
       'id': 1, 'title': 'home', 'routerlink': '/home'
     },
     {
-      'id': 1, 'title': 'Our capabilities', 'caret': true, 'children': [
+      'id': 2, 'title': 'Our capabilities', 'caret': true, 'children': [
         { 'subtitle': 'home' },
         { 'subtitle': 'commercial' },
         { 'subtitle': 'housing society' },
       ]
     },
     {
-      'id': 2, 'title': 'solar solutions', 'caret': true, 'children': [
+      'id': 3, 'title': 'solar solutions', 'caret': true, 'children': [
         { 'subtitle': 'off-grid' },
         { 'subtitle': 'on-grid' },
       ]
     },
-    { 'id': 3, 'title': 'our presence' },
-    { 'id': 4, 'title': 'solar calculator', 'routerlink': '/calculator' },
+    { 'id': 4, 'title': 'our presence' },
+    { 'id': 5, 'title': 'solar calculator', 'routerlink': '/calculator' }
   ]
 
   constructor() { }

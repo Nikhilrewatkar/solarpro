@@ -6,6 +6,7 @@ import { ConsultationFormComponent } from './components/consultation-form/consul
 import { LoginComponent } from './components/admin/login/login.component';
 import { UsersComponent } from './components/admin/users/users.component';
 import { AuthGuard } from './services/auth.guard';
+import { FaqComponent } from './components/faq/faq.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'consultation', component: ConsultationFormComponent },
   { path: 'login', component: LoginComponent },
   { path: 'users', component: UsersComponent, },
+  { path: 'faq', component: FaqComponent, },
 ];
 
 @NgModule({

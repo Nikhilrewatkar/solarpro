@@ -15,17 +15,17 @@ export class TestimonialComponent implements OnInit {
     {
       name: 'Kishore Reddy',
       location: 'Telangana',
-      text: `My aspiration to create a sustainable, carbon-free world... I wholeheartedly recommend Thinkearth360!`
+      text: `My aspiration to create a sustainable, carbon-free world... I wholeheartedly recommend AmpereArtElectrical!`
     },
     {
       name: 'Braj Bhushan',
       location: 'Uttar Pradesh',
-      text: `I am a working person, but the Thinkearth360 team did everything perfectly... they did everything else.`
+      text: `I am a working person, but the AmpereArtElectrical team did everything perfectly... they did everything else.`
     },
     {
       name: 'Gandharv Chauhan',
       location: 'Rajasthan',
-      text: `Being an engineer myself, I am extremely satisfied with the team... I highly recommend Thinkearth360.`
+      text: `Being an engineer myself, I am extremely satisfied with the team... I highly recommend AmpereArtElectrical.`
     }
   ];
 
